@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Component
 @Entity
-@Table(name = "crudUsersTable")
+@Table(name = "crud_users_table")
 public class User {
 
     @Id

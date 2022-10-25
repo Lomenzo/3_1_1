@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -23,5 +24,28 @@ public class UserServiceImpl implements UserService{
     public List<User> getUserList() {
         List<User> userList = userDao.findAll();
         return userList;
+    }
+
+    @Override
+    public User updateUser(User user, Long userId){
+        User userUpdate = userDao.findById(userId).get();
+        String emptyString = "";
+        String newName = user.getName();
+        String newLastName = user.getLastName();
+
+        if (!emptyString.equalsIgnoreCase(newName) && Objects.nonNull(newName)) {
+            userUpdate.setName(newName);
+        }
+
+        if (!emptyString.equalsIgnoreCase(newLastName) && Objects.nonNull(newLastName)) {
+            userUpdate.setLastName(newLastName);
+        }
+
+        return userDao.save(userUpdate);
+    }
+
+    @Override
+    public void deleteUserById(Long userId) {
+        userDao.deleteById(userId);
     }
 }

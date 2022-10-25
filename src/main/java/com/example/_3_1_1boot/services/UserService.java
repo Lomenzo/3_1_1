@@ -12,11 +12,10 @@ public interface UserService {
     // Read operation
     List<User> getUserList();
 
-//    // Update operation
-//    User updateUser(User user,
-//                                Long userId);
-//
-//    // Delete operation
-//    void deleteUserById(Long userId);
+    // Update operation
+    User updateUser(User user, Long userId);
+
+    // Delete operation
+    void deleteUserById(Long userId);
 
 }

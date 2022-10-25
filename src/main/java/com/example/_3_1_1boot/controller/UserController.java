@@ -30,9 +30,14 @@ public class UserController {
 //        usersList.add(new User((long)1, "Evgen", "snd", 100000));
 //        usersList.add(new User((long)2, "Vova", "imka", 200000));
 //        User user = new User();
-//        User fromDB = userService.saveUser(new User("Reyhan", "Igor", 90000));
-//        usersList.add(fromDB);
 
+
+
+
+        User fromDB = userService.saveUser(new User("Dumbass", "chita", 10000));
+
+        userService.deleteUserById((long)2);
+        userService.updateUser(new User( "Metal", "shot", 50000), (long)4);
         List<User> userList = userService.getUserList();
         modelMap.addAttribute("users", userList);
         return "userPage";
