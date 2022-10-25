@@ -41,6 +41,8 @@ public class UserServiceImpl implements UserService{
             userUpdate.setLastName(newLastName);
         }
 
+        userUpdate.setSalary(user.getSalary());
+
         return userDao.save(userUpdate);
     }
 
